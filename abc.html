@@ -1,0 +1,26 @@
+<html>
+<title>Shorten Your URL</title>
+<head>
+<script src="jquery-min.js">
+</script>
+<script>
+function take_arg()
+{
+  var url = document.getElementById('url_input').value;
+  
+   $.post("url_short.php",
+    {
+      url_sent: url,
+    },
+    //callback function : 'data' contains data recieved
+    function(data,status){
+      document.getElementById('url_output').value = data;
+    });
+}
+</script>
+</head>
+<body>
+GIVE URL  :  <input style="width:70%;"id="url_input" type="text">   <button type="button" id="shorten"onclick="take_arg()">Shorten</button>
+<div id="shortened">Shortened url : <input style="width:60%;"id="url_output" type="text"></div>
+</body>
+</html>
